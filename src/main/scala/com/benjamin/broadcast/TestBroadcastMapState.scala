@@ -17,6 +17,10 @@ import org.apache.flink.util.Collector
 object TestBroadcastMapState {
   def main(args: Array[String]): Unit = {
     val env = StreamExecutionEnvironment.getExecutionEnvironment
+    testBroadcastState(env)
+  }
+
+  def testBroadcastState(env: StreamExecutionEnvironment): Unit = {
     val ds1: DataStream[User] = env
       .readTextFile("E:/GitProject/flinkshare/flinkshare/src/main/resources/log1.txt")
       .map(s => {
@@ -53,6 +57,7 @@ object TestBroadcastMapState {
 
     env.execute()
   }
+
 }
 
 case class User(name: String, job: String)
