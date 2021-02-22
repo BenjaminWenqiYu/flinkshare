@@ -33,8 +33,8 @@ object DataStreamSinkToMysqlApp {
 }
 
 class CustomSinkToMysql extends RichSinkFunction[Person] {
-  private[datastream] var connection: Connection = _
-  private[datastream] var pstmt: PreparedStatement = _
+  private[streaming] var connection: Connection = _
+  private[streaming] var pstmt: PreparedStatement = _
 
   /**
     * 获取数据库连接

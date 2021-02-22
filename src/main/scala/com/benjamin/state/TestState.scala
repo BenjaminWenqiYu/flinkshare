@@ -20,7 +20,7 @@ import org.apache.flink.util.Collector
   * Time: 19:00
   * Description: 这些都是针对Keyed Stream进行的操作
   */
-class TestState {
+object TestState1 {
   def main(args: Array[String]): Unit = {
     val env = StreamExecutionEnvironment.getExecutionEnvironment
     val ds = env.fromCollection(0 until 10).keyBy(x => x % 2)
