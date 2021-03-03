@@ -112,6 +112,14 @@
             <artifactId>jol-core</artifactId>
             <version>0.10</version>
         </dependency>
+
+        <!-- rocksDB -->
+        <dependency>
+            <groupId>org.rocksdb</groupId>
+            <artifactId>rocksdbjni</artifactId>
+            <!-- 注意6.6.4版本有bug 报错[java.lang.UnsatisfiedLinkError: org.rocksdb.RocksDB.closeDatabase(J)V] -->
+            <version>6.8.1</version>
+        </dependency>
         
     </dependencies>
 
