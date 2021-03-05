@@ -21,7 +21,8 @@ public class KafkaConsumerTest {
         Properties props = new Properties();
         props.setProperty("bootstrap.servers", "xxx.xxx.xxx.xxx:6667,xxx.xxx.xxx.xxx:6667,xxx.xxx.xxx.xxx:6667");
 
-        FlinkKafkaConsumer<String> consumer = new FlinkKafkaConsumer<String>("Kafka的topic", new SimpleStringSchema(), props);
+        FlinkKafkaConsumer<String> consumer = new FlinkKafkaConsumer<String>("meter_reading",
+                new SimpleStringSchema(), props);
         consumer.setStartFromEarliest();
         DataStream<String> ds = env
                 .addSource(consumer);

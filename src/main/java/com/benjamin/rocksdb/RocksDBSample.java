@@ -6,7 +6,6 @@ import org.rocksdb.util.SizeUnit;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.Map;
 
 /**
  * Created with IntelliJ IDEA.
@@ -15,14 +14,6 @@ import java.util.Map;
  * Time: 11:21
  * Description: 使用RocksDB的示例
  */
-import java.lang.IllegalArgumentException;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Map;
-import java.util.ArrayList;
-
-import org.rocksdb.*;
-import org.rocksdb.util.SizeUnit;
 
 public class RocksDBSample {
     static {

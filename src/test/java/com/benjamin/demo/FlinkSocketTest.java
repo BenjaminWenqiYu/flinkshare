@@ -21,17 +21,18 @@ public class FlinkSocketTest {
 
         DataStream<String> ds = env.socketTextStream("127.0.0.1", 6666, "\n");
 
-        DataStream<Tuple2<String, Integer>> dataStream = ds.flatMap(new FlatMapFunction<String, Tuple2<String, Integer>>() {
-            @Override
-            public void flatMap(String s, Collector<Tuple2<String, Integer>> collector) throws Exception {
-                for (String word: s.split(" ")) {
-                    collector.collect(new Tuple2<String, Integer>(word, 1));
-                }
-            }
-        })
-                .keyBy(value -> value.f0)
-                .window(TumblingProcessingTimeWindows.of(Time.seconds(1)))
-                .sum(1);
+        DataStream<Tuple2<String, Integer>> dataStream =
+                ds.flatMap(new FlatMapFunction<String, Tuple2<String, Integer>>() {
+                    @Override
+                    public void flatMap(String s, Collector<Tuple2<String, Integer>> collector) throws Exception {
+                        for (String word : s.split(" ")) {
+                            collector.collect(new Tuple2<String, Integer>(word, 1));
+                        }
+                    }
+                })
+                        .keyBy(value -> value.f0)
+                        .window(TumblingProcessingTimeWindows.of(Time.seconds(1)))
+                        .sum(1);
 
         dataStream.print();
 
