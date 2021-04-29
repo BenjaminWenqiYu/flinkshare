@@ -6,6 +6,7 @@
 
     <groupId>com.benjamin.flink</groupId>
     <artifactId>flink-share</artifactId>
+    <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
 
     <properties>
@@ -120,6 +121,27 @@
             <!-- 注意6.6.4版本有bug 报错[java.lang.UnsatisfiedLinkError: org.rocksdb.RocksDB.closeDatabase(J)V] -->
             <version>6.8.1</version>
         </dependency>
+
+        <!-- 数据库文档核心依赖 -->
+        <dependency>
+            <groupId>cn.smallbun.screw</groupId>
+            <artifactId>screw-core</artifactId>
+            <version>1.0.5</version>
+        </dependency>
+        <!-- HikariCP -->
+        <dependency>
+            <groupId>com.zaxxer</groupId>
+            <artifactId>HikariCP</artifactId>
+            <version>3.4.5</version>
+        </dependency>
+        <!--mysql driver-->
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>8.0.20</version>
+        </dependency>
+
+
         
     </dependencies>
 
